@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студент — форма</title>
+    <link rel="icon" href="favicon2.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1 id="form-title">Добавить студента</h1>
+        <a href="index.html" class="btn-add">← Назад к списку</a>
+    </header>
+
+    <main>
+        <form id="student-form" class="student-form" novalidate>
+            <div class="form-row">
+                <label for="name">ФИО *</label>
+                <input type="text" id="name" name="name" required
+                    minlength="5"
+                    maxlength="50"
+                    pattern="^[A-Za-zА-Яа-яЁё\-]+(\s+[A-Za-zА-Яа-яЁё\-]+){2,}$"
+                    title="Минимум три слова: фамилия, имя, отчество. Только буквы и дефис."
+                    placeholder="Иванов Иван Иванович">
+                <span class="error-message" id="error-name"></span>
+            </div>
+
+            <div class="form-row">
+                <label for="group">Группа *</label>
+                <input type="text" id="group" name="group" required
+                    pattern="[A-Za-z][1-9][0-9]{3}"
+                    maxlength="5"
+                    title="Формат: латинская буква и 4 цифры, например A1111"
+                    placeholder="A1111"
+                    style="text-transform: uppercase;">
+                <span class="error-message" id="error-group"></span>
+            </div>
+
+            <div class="form-row">
+                <label for="isuId">ИСУ ID *</label>
+                <input type="number" id="isuId" name="isuId" required
+                    min="100000" max="999999"
+                    title="Ровно 6 цифр"
+                    placeholder="123456">
+                <span class="error-message" id="error-isuId"></span>
+            </div>
+
+            <div class="form-row">
+                <label for="dorm">Номер общежития *</label>
+                <input type="number" id="dorm" name="dorm" required
+                       min="1" placeholder="1">
+                <span class="error-message" id="error-dorm"></span>
+            </div>
+
+            <div class="form-row">
+                <label for="room">Комната *</label>
+                <input type="number" id="room" name="room" required
+                    min="1" max="150"
+                    placeholder="55">
+                <span class="error-message" id="error-room"></span>
+            </div>
+
+            <div class="form-row">
+                <label for="date">Дата заселения *</label>
+                <input type="date" id="date" name="date" required
+                    min="2000-01-01"
+                    title="Дата от 2000 года и не позже сегодня">
+                <span class="error-message" id="error-date"></span>
+            </div>
+
+            <div class="form-row form-row-checkbox">
+                <label for="isForeign">
+                    <input type="checkbox" id="isForeign" name="isForeign">
+                    Иностранный студент
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="notes">Заметки</label>
+                <textarea id="notes" name="notes" rows="3"
+                          maxlength="50" placeholder="Дополнительная информация"></textarea>
+                <span class="error-message" id="error-notes"></span>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit" id="submit-btn">Добавить</button>
+                <a href="index.html" class="btn-cancel">Отмена</a>
+            </div>
+        </form>
+    </main>
+
+    <script type="module" src="js/form.js"></script>
+</body>
+</html>
